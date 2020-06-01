@@ -1,17 +1,35 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+// get our fontawesome imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faSearch } from "@fortawesome/free-solid-svg-icons";
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+import "./style.css";
+import YahooStocks from "./YahooStocks";
+
+const App = () => {
+  return (<div>
+    <YahooStocks />
+    <div className="responsive-nav">
+      <button className="menu-button fa-button"><FontAwesomeIcon icon={faBars} /></button>
+      <h1 className="nav-title long">THE OAUL SHEET JOURNAL.</h1>
+      <h1 className="nav-title abbr">OSJ</h1>
+      <div className="nav-large-only nav-data">English | 01-Jun-2020 | Print | Video </div>
+      <div>
+        <div className="nav-large-only nav-categories">
+          <span className="category-item">Home</span>
+          <span className="category-item">World</span>
+          <span className="category-item">World</span>
+          <span className="category-item">U.S.</span>
+          <span className="category-item">Politics</span>
+          <span className="category-item">Economy</span>
+        </div>
+        <button className="fa-button"><FontAwesomeIcon icon={faSearch} /></button>
+      </div>
+    </div>
+    <hr />
+  </div>)
+}
+
+ReactDOM.render(<App />, document.getElementById("root"));
